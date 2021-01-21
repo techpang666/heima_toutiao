@@ -23,7 +23,7 @@
 			</div>
 			<p class="tips">没有账号？<a href="#/register" class="">去注册</a></p>
 			<!-- 使用组件 -->
-			<my_button type= "danger" @click="login">欢迎回归</my_button>
+			<my_button type= "danger" @click="login">欢迎回归666</my_button>
 		</div>
 </template>
 
