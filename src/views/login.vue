@@ -12,13 +12,13 @@
 
 
 				<my_input
-				placeholder="请输入手机号"
-				v-model="user.username"
+				placeholder="请输入手机号(例如:13800138000)"
 				:rules="/^(?:(?:\+|00)86)?1[3-9]\d{9}$/"
 				></my_input>
+				<!-- v-model="user.username" -->
+				<!-- v-model="user.password" -->
 				<my_input
-				placeholder="请输入密码"
-				v-model="user.password"
+				placeholder="请输入密码(例如:123)"
 				></my_input>
 			</div>
 			<p class="tips">没有账号？<a href="#/register" class="">去注册</a></p>
