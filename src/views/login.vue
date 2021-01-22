@@ -11,32 +11,34 @@
 				></my_input> -->
 
 
-				<my_input
-				placeholder="请输入手机号(例如:13800138000)"
+				<MyInput
+				placeholder="请输入手机号(测试账号:13800138000)"
 				:rules="/^(?:(?:\+|00)86)?1[3-9]\d{9}$/"
 				msg="手机号错误，请重新输入"
-				></my_input>
+				></MyInput>
 				<!-- v-model="user.username" -->
 				<!-- v-model="user.password" -->
-				<my_input
-				placeholder="请输入密码(例如:123)"
-				></my_input>
+				<MyInput
+				placeholder="请输入密码(测试密码:123)"
+				></MyInput>
 			</div>
 			<p class="tips">没有账号？<a href="#/register" class="">去注册</a></p>
 			<!-- 使用组件 -->
-			<my_button type= "danger" @click="login">欢迎回归666</my_button>
+			<MyButton type= "danger" @click="login">欢迎回归666</MyButton>
 		</div>
 </template>
 
 <script>
 // 引入组件
-import my_button from '@/components/my_button'
-import my_input from '@/components/my_input'
+import MyButton from '@/components/MyButton'
+import MyInput from '@/components/MyInput'
+import {login} from '@/apis/user'
+
 export default {
 	// 注册组件
 	components: {
-		my_button,
-		my_input
+		MyButton,
+		MyInput
 	},
 	data() {
 		return {
