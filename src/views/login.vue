@@ -6,11 +6,12 @@
 			<MyInput
 			:rules="/^(?:(?:\+|00)86)?1[3-9]\d{9}$/"
 			msg="手机号错误，请重新输入"
-			placeholder="请输入手机号(测试账号:13800138000)"
+			placeholder="请输入手机号"
 			v-model="user.username"
 			></MyInput>
 			<MyInput
-			placeholder="请输入密码(测试密码:123)"
+			type="password"
+			placeholder="请输入密码"
 			v-model="user.password"
 			></MyInput>
 		</div>
@@ -78,7 +79,7 @@ export default {
 				// let res = await userLogin(this.user)
 			} else {
 				// 这是判断用户是否正确输入用户名及密码的
-				Toast('请正确输入用户名及密码')
+				Toast('数据不合法，请输入正确的用户名及密码')
 			}
 		},
 	},
