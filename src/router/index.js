@@ -14,6 +14,11 @@ const router = new VueRouter({
       path: '/login',
       // 异步加载组件
       component: () => import('../views/login.vue')
+    },
+    {
+      name: 'register',
+      path: '/register',
+      component: () => import('../views/register.vue')
     }
   ]
 })

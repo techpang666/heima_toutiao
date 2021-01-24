@@ -6,11 +6,11 @@
 			<MyInput
 			:rules="/^(?:(?:\+|00)86)?1[3-9]\d{9}$/"
 			msg="手机号错误，请重新输入"
-			placeholder="请输入手机号(测试账号:admin)"
+			placeholder="请输入手机号(测试账号:13800138000)"
 			v-model="user.username"
 			></MyInput>
 			<MyInput
-			placeholder="请输入密码(测试密码:123456)"
+			placeholder="请输入密码(测试密码:123)"
 			v-model="user.password"
 			></MyInput>
 		</div>
@@ -41,8 +41,8 @@ export default {
 	data() {
 		return {
 			user: {
-				username: '13800138000',
-				password: '123',
+				username: '',
+				password: '',
 				// username: 'admin',
 				// password: '123456',
 			},
@@ -67,6 +67,7 @@ export default {
 					// 拿到登录结果
 					let res = await userLogin(this.user)
 					// 通过捕获异常判断登录结果
+					console.log(res);
 					if(res.data.statusCode == 200) {
 						Toast(res.data.message)
 					}
@@ -75,7 +76,6 @@ export default {
 					Toast('用户名或密码不正确，请重新输入')
 				}
 				// let res = await userLogin(this.user)
-				// console.log(res);
 			} else {
 				// 这是判断用户是否正确输入用户名及密码的
 				Toast('请正确输入用户名及密码')
