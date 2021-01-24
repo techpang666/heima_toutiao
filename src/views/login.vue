@@ -63,10 +63,22 @@ export default {
 				// await可以实现先等待异步操作执行完毕 再执行后面的代码
 				// 它可以获取them中的回调函数并返回
 				// await必须在async函数中
-				let res = await userLogin(this.user)
-				console.log(res);
-			}else {
-				Toast('用户名或密码不正确，请重新输入')
+				try {
+					// 拿到登录结果
+					let res = await userLogin(this.user)
+					// 通过捕获异常判断登录结果
+					if(res.data.statusCode == 200) {
+						Toast(res.data.message)
+					}
+					// 如果有错执行catch
+				} catch (error) {
+					Toast('用户名或密码不正确，请重新输入')
+				}
+				// let res = await userLogin(this.user)
+				// console.log(res);
+			} else {
+				// 这是判断用户是否正确输入用户名及密码的
+				Toast('请正确输入用户名及密码')
 			}
 		},
 	},
