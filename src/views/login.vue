@@ -71,6 +71,10 @@ export default {
 					console.log(res);
 					if(res.data.statusCode == 200) {
 						Toast(res.data.message)
+						// 将后台返回的token存储到本地
+						localStorage.setItem('heima_toutiao_token', res.data.data.token)
+						// 拿到token值进行跳转
+						this.$router.push({name: 'personal'})
 					}
 					// 如果有错执行catch
 				} catch (error) {

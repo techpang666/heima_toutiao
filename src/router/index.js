@@ -30,10 +30,12 @@ const router = new VueRouter({
 
 // 添加全局的导航首页 前置守卫 跳转前触发
 router.beforeEach((to, from, next) => {
+	console.log(to);
+	next()
   // 并不是所有页面都需要登录状态(token) 这里设置为个人中心页
-	if (to.path.indexOf('/personal') === 0) {
+	if (to.path.indexOf('/personal') !== -1) {
     // 通过token判断用户是否登录过
-    let token = localStorage.getItem('toutiao_59_token');
+    let token = localStorage.getItem('heima_toutiao_token');
 		// 如果有token证明登录过
 		if (token) {
 			next();
