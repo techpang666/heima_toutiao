@@ -27,6 +27,7 @@ export default {
       // 建议传参e 万一需要用
       // 记得上面调用
       this.$emit('click', e)
+      this.$emit('keyup', e)
     }
   }
 }

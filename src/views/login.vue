@@ -20,6 +20,7 @@
 		<MyButton
 		type="danger"
 		@click="login"
+		@keyup.enter="login"
 		>欢迎回归666</MyButton>
 	</div>
 </template>
