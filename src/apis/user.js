@@ -26,7 +26,7 @@ export const getUserInfo = function (id) {
     // 参数是路由参数
     url: `/user/${id}`,
     // 需要授权的api需要带上token验证 键值对
-    headers: {Authorization: localStorage.getItem('heima_toutiao_token')}
+    // headers: {Authorization: localStorage.getItem('heima_toutiao_token')}
   })
 }
 
