@@ -20,7 +20,6 @@
 		<MyButton
 		type="danger"
 		@click="login"
-		@keyup.enter="login"
 		>欢迎回归666</MyButton>
 	</div>
 </template>
@@ -75,7 +74,9 @@ export default {
 						// 将后台返回的token存储到本地
 						localStorage.setItem('heima_toutiao_token', res.data.data.token)
 						// 拿到token值进行跳转
-						this.$router.push({name: 'personal'})
+						// this.$router.push({name: 'personal'})
+						// 修改调用path取参 根据返回结果取id
+						this.$router.push({path: 'personal/' + res.data.data.user.id})
 					}
 					// 如果有错执行catch
 				} catch (error) {

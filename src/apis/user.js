@@ -19,3 +19,15 @@ export const userRegister = function (data) {
     data
   })
 }
+
+// 获取当前用户的详情
+export const getUserInfo = function (id) {
+  return axios({
+    // 参数是路由参数
+    url: `/user/${id}`,
+    // 需要授权的api需要带上token验证 键值对
+    headers: {Authorization: localStorage.getItem('heima_toutiao_token')}
+  })
+}
+
+

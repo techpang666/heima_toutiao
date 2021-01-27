@@ -22,7 +22,8 @@ const router = new VueRouter({
 		},
 		{
 			name: 'personal',
-			path: '/personal',
+			// 修改路由 让它可以传参
+			path: '/personal/:id',
 			component: () => import('@/views/personal.vue'),
 		},
 	],
