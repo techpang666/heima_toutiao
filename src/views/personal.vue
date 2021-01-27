@@ -11,7 +11,7 @@
             <!-- 动态绑定性别 -->
             <span :class="{iconfont:true, iconxingbienan: current.gender == 1, iconxingbienv: current.gender == 0}"></span>{{current.nickname}}
           </div>
-          <div class="time">{{current.create_date}}</div>
+          <div class="time">{{current.create_date | dateFormat}}</div>
         </div>
         <span class="iconfont iconjiantou1"></span>
       </div>
@@ -27,9 +27,11 @@
 // 导入子组件
 import MyCell from '@/components/MyCell'
 // 导入获取用户信息的方法
-import {getUserInfo} from '@/apis/user'
+import { getUserInfo } from '@/apis/user'
 // 导入axios模块
 import axios from '@/utils/myAxios'
+// 导入处理时间的过滤器
+import { dateFormat } from '@/utils/myFilters'
 export default {
   components: {
     MyCell
@@ -41,6 +43,10 @@ export default {
       // 模板中使用需要定义这个成员
       // axios
     }
+  },
+  filters: {
+    // 注册过滤器
+    dateFormat
   },
   async mounted () {
     // 通过`route`获取用户id
