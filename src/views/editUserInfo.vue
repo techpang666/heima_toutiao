@@ -11,15 +11,41 @@
       @click="$router.push({name: 'index'})"
       ></span>
     </MyHeader>
+    <div class="userimg">
+      <img src="../assets/test.png" alt="">
+      <van-uploader :after-read="afterRead"/>
+    </div>
+    <MyCell title="昵称" desc="随便"></MyCell>
+    <MyCell title="密码" desc="****"></MyCell>
+    <MyCell title="性别" desc="男"></MyCell>
   </div>
 </template>
 
 <script>
+// 引入子组件
 import MyHeader from '@/components/MyHeader'
+import MyCell from '@/components/MyCell'
+// 引入文件上传的方法
+import { uploadFile } from '@/apis/upload'
 
 export default {
   components: {
-    MyHeader
+    MyHeader,
+    MyCell
+  },
+  methods: {
+    async afterRead (myFile) {
+      // 自行将文件上传服务器
+      // console.log(file);
+      
+      // 通过formdata收集文件数据
+      console.log(myFile.file);
+      let formdata = new FormData();
+      formdata.append('file', myFile.file)
+      // 调用uploadFile方法 实现文件上传
+      let res = await uploadFile(formdata)
+      console.log(res);
+    }
   }
 }
 </script>

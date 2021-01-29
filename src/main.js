@@ -7,9 +7,12 @@ import '@/styles/reset.less'
 import '@/styles/font.css';
 // 引入路由模块
 import router from '@/router/index'
-// 按需引入vant
+// 导入vant的图标
 import { Icon } from 'vant'
 Vue.use(Icon)
+// 导入vant的文件上传组件
+import { Uploader } from 'vant'
+Vue.use(Uploader)
 
 Vue.config.productionTip = false
 
