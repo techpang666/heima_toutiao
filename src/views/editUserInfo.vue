@@ -12,26 +12,46 @@
       ></span>
     </MyHeader>
     <div class="userimg">
-      <img src="../assets/test.png" alt="">
+      <img
+      :src="current.head_img"
+      alt="">
       <van-uploader :after-read="afterRead"/>
     </div>
-    <MyCell title="昵称" desc="随便"></MyCell>
-    <MyCell title="密码" desc="****"></MyCell>
-    <MyCell title="性别" desc="男"></MyCell>
+    <MyCell
+    title="昵称"
+    :desc="current.nickname"
+    ></MyCell>
+    <MyCell
+    title="密码"
+    desc="****"
+    ></MyCell>
+    <MyCell
+    title="性别"
+    :desc="current.gender == 1 ? '男' : '女'"
+    ></MyCell>
   </div>
 </template>
 
 <script>
-// 引入子组件
+// 导入子组件
 import MyHeader from '@/components/MyHeader'
 import MyCell from '@/components/MyCell'
-// 引入文件上传的方法
+// 导入文件上传的方法
 import { uploadFile } from '@/apis/upload'
+// 导入获取用户信息的方法
+import { getUserInfo } from '@/apis/user'
+// 导入axios模块
+import axios from '@/utils/myAxios'
 
 export default {
   components: {
     MyHeader,
     MyCell
+  },
+  data () {
+    return {
+      current: {}
+    }
   },
   methods: {
     async afterRead (myFile) {
@@ -45,6 +65,18 @@ export default {
       // 调用uploadFile方法 实现文件上传
       let res = await uploadFile(formdata)
       console.log(res);
+    }
+  },
+  async mounted () {
+    // 通过id获取用户的信息
+    let res = await getUserInfo(this.$route.params.id)
+    console.log(res);
+    // 进行数据改造并返回
+    if (res.data.data.message == '获取成功') {
+      // 改造数据
+      res.res.data.data.head_img = axios.defaults.baseURL + res.res.data.data.head_img
+      // 赋值给current
+      this.current = res.res.data.data
     }
   }
 }
