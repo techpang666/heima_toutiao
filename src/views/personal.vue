@@ -1,6 +1,7 @@
 <template>
   <div class="personal">
-    <router-link to="/edit_profile">
+    <!-- 拼接当前用户的id进行资料编辑 -->
+    <router-link to="'/editUserInfo/' + $route.params.id">
       <div class="profile">
         <!-- $axios.defaults.baseURL读取axios的服务器路径 -->
         <!-- 可以axios进行拼接 但建议进行数据改造使用 -->

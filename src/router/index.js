@@ -26,6 +26,11 @@ const router = new VueRouter({
 			path: '/personal/:id',
 			component: () => import('@/views/personal.vue'),
 		},
+		{
+			name: 'editUserInfo',
+			path: '/editUserInfo/:id',
+			component: () => import('@/views/editUserInfo.vue'),
+		}
 	],
 });
 

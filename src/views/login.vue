@@ -10,7 +10,6 @@
 			v-model="user.username"
 			></MyInput>
 			<MyInput
-			type="password"
 			placeholder="请输入密码"
 			v-model="user.password"
 			></MyInput>
@@ -31,7 +30,7 @@ import MyInput from '@/components/MyInput';
 // 引入登录方法
 import { userLogin } from '@/apis/user';
 // 引入Toast
-import {Toast} from 'vant'
+import { Toast } from 'vant'
 
 export default {
 	// 注册组件

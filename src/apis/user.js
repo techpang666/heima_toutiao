@@ -1,6 +1,5 @@
 // 引入axios
 import axios from '@/utils/myAxios'
-// import axios from '../utils/myAxios'
 
 // 登录方法
 export const userLogin = function (data) {

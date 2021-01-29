@@ -7,6 +7,9 @@ import '@/styles/reset.less'
 import '@/styles/font.css';
 // 引入路由模块
 import router from '@/router/index'
+// 按需引入vant
+import { Icon } from 'vant'
+Vue.use(Icon)
 
 Vue.config.productionTip = false
 

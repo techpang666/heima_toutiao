@@ -22,7 +22,7 @@ export default {
   },
   methods: {
     handler(e) {
-      console.log('子组件测试', e);
+      // console.log('子组件测试', e);
       // 需要告诉父组件要触发单击事件
       // 建议传参e 万一需要用
       // 记得上面调用
