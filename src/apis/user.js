@@ -29,4 +29,19 @@ export const getUserInfo = function (id) {
   })
 }
 
+// 编辑用户信息的方法
+export const updateUserInfo = function (data, id) {
+  return axios({
+    method: 'post',
+    url: `/user_update/${id}`,
+    data
+  })
+}
+
+
+
+
+
+
+
 
